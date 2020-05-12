@@ -1,6 +1,11 @@
 import tkinter as tk
 import tkinter.font as tf
 
+import calendar#日历制作
+calendar.setfirstweekday(firstweekday=6)
+
+import sxtwl#农历制作
+
 import time
 
 localtime = time.localtime(time.time())#(tm_year, tm_mon, tm_mday, tm_hour, tm_min, tm_sec, tm_wday, tm_yday, tm_isdst)
@@ -35,19 +40,97 @@ month.current(month_list.index(localtime.tm_mon))
 
 
 #---------------日历制作----------------------
-calendar = tk.Text(window)#日历窗口
-ft = tf.Font(family='微软雅黑',size=15)
-calendar.tag_add('tag_ym',0.0)
-calendar.tag_config('tag_ym',font =ft )
-calendar.insert(1.1,"%s年 %s月"%(year.get(),month.get())+'\n','tag_ym')
+cal = tk.Text(window)#日历窗口,,padx=120,pady=60
+ft = tf.Font(family='宋体',size = 18)
+cal.tag_add('tag_ym',0.0)
+cal.tag_config('tag_ym',font =ft )
+#cal.insert(tk.END,calendar.month(int(year.get()),int(month.get())),'tag_ym')
+cal.insert(tk.END,"%s 年 %s 月"%(year.get(),month.get())+'\n','tag_ym')
+cal.insert(tk.END,"周日\t 周一\t 周二\t 周三\t 周四\t 周五\t 周六\t"+ '\n','tag_ym')
 def get_year_month():
-    calendar.delete(1.0,tk.END)
-    calendar.insert(1.1,"%s年 %s月"%(year.get(),month.get())+'\n','tag_ym')
-    calendar.insert(2.1,"   周日     周一     周二     周三     周四     周五     周六"+'\n','tag_ym')
+    cal.delete(0.0,tk.END)
+    cal.insert(tk.END,"%s 年 %s 月"%(year.get(),month.get())+'\n','tag_ym')
+    cal.insert(tk.END,"周日\t 周一\t 周二\t 周三\t 周四\t 周五\t 周六\t"+ '\n','tag_ym')
+
+def isLeapYear(year1):#判断是否是闰年
+
+    return True if (year1 % 100 != 0 and year1 % 4 == 0) or year1 % 400 ==0 else False
+
+
+
+def monthDay(year1,month1):#判断当前月天数
+
+    li = [31,28,31,30,31,30,31,31,30,31,30,31]
+
+    if isLeapYear(year1):
+
+        li[1] = 29
+
+    return li[month1-1]
+
+
+
+def totalDay(year1, month1):#距1900年1月1日的天数
+
+    days = 0
+
+    for index_year in range(1900, year1):
+
+        days += 366 if isLeapYear(index_year) else 365
+
+    for index_month in range(1, month1):
+
+        days += monthDay(year1, index_month)
+
+    return days
+
+
+
+def show(): #显示当前月
+
+    year1 = year.get()
+    month1 = month.get()
+
+    space_num = totalDay(year1, month1) % 7 + 1
+
+    #print("空格数",space_num)
+
+    #print("星期",totalDay(year, month) % 7 + 1,"开始")
+
+    #print("星期日\t一\t二\t三\t四\t五\t六")
+
+    for i in range(1, monthDay(year1,month1) + 1):
+
+        if (i == 1):
+
+            for j in range(space_num % 7):
+
+                print("\t",end="")
+
+        print("\t%2d"%i,end="")
+
+        if (i + space_num) % 7 == 0:
+
+            print()
+
+show()
+
 button_sure = tk.Button(window, text='确定', font=('Arial', 10), width=7, height=1,command = get_year_month)
 button_sure.place(x=380,y=15)
-calendar.insert(2.1,"   周日     周一     周二     周三     周四     周五     周六"+'\n','tag_ym')
-calendar.place(x=10, y=50, width=500, height=300)
+
+
+'''cal.insert(tk.END,calendar.month(int(year.get()),int(month.get())),'tag_ym')
+def get_year_month():
+    cal.delete(0.0,tk.END)
+    cal.insert(tk.END,calendar.month(int(year.get()),int(month.get())),'tag_ym')
+button_sure = tk.Button(window, text='确定', font=('Arial', 10), width=7, height=1,command = get_year_month)
+button_sure.place(x=380,y=15)
+'''
+cal.place(x=10, y=50, width=500, height=300)
+
+
+
+
 
 
 
