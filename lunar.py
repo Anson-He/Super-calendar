@@ -98,7 +98,6 @@ def get_lunar():
 
 
     day = lunar.getDayBySolar(int(year1.get()),int(month1.get()),int(day1.get()))
-    print(year1.get())
     printDay(day)
 
     log("========================================="+'\n')
@@ -113,9 +112,6 @@ def get_lunar():
         day = lunar.getDayBySolar(int(year1.get()),int(month1.get()),int(day1.get()))
         print(int(year1.get()))
         printDay(day)
-
-        '''gz = lunar.getShiGz(2,  12)  #第一个参数为生日的日天干,参数二为出生的时间(小时)
-        print( Gan[gz.tg], Zhi[gz.dz])'''
 
 
         log("========================================="+'\n')
