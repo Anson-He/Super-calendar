@@ -4,13 +4,13 @@ import tkinter.font as tf
 import calendar#日历制作
 calendar.setfirstweekday(firstweekday=6)
 
-import sxtwl#农历制作
 
 import time
 
 localtime = time.localtime(time.time())#(tm_year, tm_mon, tm_mday, tm_hour, tm_min, tm_sec, tm_wday, tm_yday, tm_isdst)
 
 from music import *
+from lunar import *
 
 window = tk.Tk()
 window.title('超级万年历')
@@ -84,9 +84,9 @@ get_time()
 
 button_weather = tk.Button(window, text='天气', font=('Arial', 12), width=15, height=3) #command=weather
 button_weather.place(x=600,y=100)
-button_memo = tk.Button(window, text='备忘录', font=('Arial', 12), width=15, height=3) #command=memo
+button_memo = tk.Button(window, text='日程', font=('Arial', 12), width=15, height=3) #command=memo
 button_memo.place(x=800,y=100)
-button_lunar = tk.Button(window, text='农历', font=('Arial', 12), width=15, height=3) #command=lunar
+button_lunar = tk.Button(window, text='农历', font=('Arial', 12), width=15, height=3,command = get_lunar)
 button_lunar.place(x=600,y=200)
 button_else = tk.Button(window, text='其他', font=('Arial', 12), width=15, height=3) #command=else
 button_else.place(x=800,y=200)
