@@ -15,6 +15,14 @@ from lunar import *
 from weather import weather
 
 window = tk.Tk()
+'''#------------设置背景图片--------------
+im = Image.open('背景.jpg').resize((1000,500))
+b_im = ImageTk.PhotoImage(im)
+cv = tk.Canvas(window,width=1000,height=500)
+cv.create_image(500,250,image=b_im)
+cv.pack()
+#-------------------------------------'''
+
 window.title('超级万年历')
 window.geometry('1000x500')# 设定窗口的大小(长 * 宽)
 
@@ -62,10 +70,6 @@ cal.place(x=10, y=50, width=500, height=300)
 #--------------------------------------------
 
 
-
-
-
-
 #-----------------动态显示时间-----------------
 def get_time():
     current_time = time.strftime("%H:%M:%S")
@@ -80,6 +84,11 @@ def get_time():
 get_time()
 #------------------------------------------------
 
+#--------------每日鸡汤----------------------
+from chicken_soup import get_chicken_soup
+chicken_soup = tk.Label(window,text = get_chicken_soup(),font=('宋体', 12),wraplength=948,justify='left')
+chicken_soup.place(x=20,y=400)
+#---------------------------------------
 
 
 
