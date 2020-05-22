@@ -13,6 +13,7 @@ from music import *
 from lunar import *
 
 from weather import weather
+from weather_quiet import weather_quiet
 
 window = tk.Tk()
 '''#------------设置背景图片--------------
@@ -93,7 +94,7 @@ chicken_soup.place(x=20,y=400)
 
 
 
-button_weather = tk.Button(window, text='天气', font=('Arial', 12), width=15, height=3,command=weather)
+button_weather = tk.Button(window, text='天气', font=('Arial', 12), width=15, height=3,command=weather_quiet)#weather动态 weather_quiet静态
 button_weather.place(x=600,y=100)
 button_memo = tk.Button(window, text='日程', font=('Arial', 12), width=15, height=3) #command=memo
 button_memo.place(x=800,y=100)
