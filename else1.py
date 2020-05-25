@@ -11,8 +11,6 @@ def else1():
         from tkinter import ttk
         import tkinter
         import tkinter.font as myFont
-        import fate_day
-        import fate_tomorrow
 
 
 
@@ -30,7 +28,7 @@ def else1():
 
         pull_list_horoscope = ttk.Combobox(root, width=10)
         xingzuo_list=["白羊座","金牛座","双子座","巨蟹座","狮子座","处女座","天秤座","天蝎座","射手座","魔羯座","水瓶座","双鱼座"]
-        data={'白羊座':'Aries','金牛座':'Taurus','双子座':'Gemini','巨蟹座':'Cancer','狮子座':'leo','处女座':'Virgo','天秤座':'Libra','天蝎座':'Scorpio','射手座':'Sagittarius','魔蝎座':'Capricorn','水瓶座':'Aquarius','双鱼座':'Pisces'}
+        data={'白羊座':'Aries','金牛座':'Taurus','双子座':'Gemini','巨蟹座':'Cancer','狮子座':'leo','处女座':'Virgo','天秤座':'Libra','天蝎座':'Scorpio','射手座':'Sagittarius','魔羯座':'Capricorn','水瓶座':'Aquarius','双鱼座':'Pisces'}
         pull_list_horoscope["values"] =xingzuo_list
         pull_list_horoscope.current(0)
         pull_list_horoscope.place(x=380, y=20)
