@@ -53,6 +53,7 @@ def weather_quiet():
             s2.append(i)
         dic1={'时间':s2[0],'天气':s2[1],'温度':s2[2],'风速':s2[3],'日出/日落时间':s2[4]}
         dic2={'时间':s2[5],'天气':s2[6],'温度':s2[7],'风速':s2[8],'日出/日落时间':s2[9]}
+        main.insert(tk.END,'城市:'+n+'\n')
         main.insert(tk.END,'================================'+'\n')
         for i in dic1:
             main.insert(tk.END,i+':'+dic1[i]+'\n')
@@ -104,6 +105,7 @@ def weather_quiet():
         dress_p=p[3].text
         wash_p=p[4].text
         air_p=p[5].text
+        main.insert(tk.END,'城市:'+n+'\n')
         main.insert(tk.END,'================================'+'\n')
         main.insert(tk.END,uv+':'+uv_t+'\n')
         main.insert(tk.END,uv_p+'\n'+'\n')

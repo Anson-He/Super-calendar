@@ -14,6 +14,7 @@ from lunar import *
 
 from weather import weather
 from weather_quiet import weather_quiet
+from else1 import  else1
 
 window = tk.Tk()
 '''#------------设置背景图片--------------
@@ -93,14 +94,13 @@ chicken_soup.place(x=20,y=400)
 
 
 
-
 button_weather = tk.Button(window, text='天气', font=('Arial', 12), width=15, height=3,command=weather_quiet)#weather动态 weather_quiet静态
 button_weather.place(x=600,y=100)
 button_memo = tk.Button(window, text='日程', font=('Arial', 12), width=15, height=3) #command=memo
 button_memo.place(x=800,y=100)
 button_lunar = tk.Button(window, text='农历', font=('Arial', 12), width=15, height=3,command = get_lunar)
 button_lunar.place(x=600,y=200)
-button_else = tk.Button(window, text='其他', font=('Arial', 12), width=15, height=3) #command=else
+button_else = tk.Button(window, text='其他', font=('Arial', 12), width=15, height=3,command=else1)
 button_else.place(x=800,y=200)
 button_music = tk.Button(window, text='▶', font=('Arial', 25), width=5, height=1,command = music)
 button_music.place(x=700,y=300)
