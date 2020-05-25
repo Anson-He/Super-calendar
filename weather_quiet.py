@@ -16,7 +16,7 @@ def weather_quiet():
     def get_weather():
         main.delete(0.0,tk.END)
         import pandas as pd
-        data = pd.read_csv('D:\\calendar\\-\\cities_code.txt',header = None,names=['cities','codes'])
+        data = pd.read_csv('.\cities_code.txt',header = None,names=['cities','codes'])
         l = {}
         for i in range(0,len(data)):
             l[data.cities[i]] = data.codes[i]
