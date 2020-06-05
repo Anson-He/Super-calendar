@@ -116,4 +116,10 @@ def else1():
 
     button_horoscope = tk.Button(window, text='星座运势', font=('Arial', 12), width=15, height=3,command=horoscope_tk)
     button_horoscope.place(x=70,y=30)
+    from zodiac import get_zodiac
+    button_zodiac = tk.Button(window, text='黄历', font=('Arial', 12), width=15, height=3,command=get_zodiac)
+    button_zodiac.place(x=300,y=30)
+    from calculate import get_calculate
+    button_calculate = tk.Button(window, text='计算器', font=('Arial', 12), width=15, height=3,command=get_calculate)
+    button_calculate.place(x=70,y=130)
 
