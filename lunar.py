@@ -110,7 +110,6 @@ def get_lunar():
     def lunar2():
         lun.delete(0.0,tk.END)
         day = lunar.getDayBySolar(int(year1.get()),int(month1.get()),int(day1.get()))
-        print(int(year1.get()))
         printDay(day)
 
 
