@@ -212,3 +212,4 @@ class MemoAdmin(object):
 if __name__ == "__main__":
     Admin = MemoAdmin()
     Admin.user_input()
+#

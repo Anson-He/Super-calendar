@@ -68,3 +68,4 @@ def get_zodiac():
 
     result = tk.Button(window,text='确定',width=5,height=1,command=zodiac)
     result.place(x=430,y=15)
+#

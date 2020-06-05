@@ -123,3 +123,4 @@ def else1():
     button_calculate = tk.Button(window, text='计算器', font=('Arial', 12), width=15, height=3,command=get_calculate)
     button_calculate.place(x=70,y=130)
 
+#

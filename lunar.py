@@ -121,3 +121,4 @@ def get_lunar():
     #----------------------------------------------------------
     button_sure = tk.Button(window, text='确定', font=('Arial', 10), width=7, height=1,command = lunar2)
     button_sure.place(x=420,y=15)
+#

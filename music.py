@@ -41,3 +41,4 @@ def music():
     play_button.place(x=150,y=380)
     pause_button = tk.Button(window, text='⏸', font=('Arial', 10), width=2, height=1,command = pause)#暂停按钮
     pause_button.place(x=100,y=380)
+#

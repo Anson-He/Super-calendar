@@ -213,3 +213,4 @@ def weather():
     botton_night.place(x=560,y=300)
     botton_hr = tk.Button(window,text='72小时汇报',width=15,height=3,command = hour_report)#,command=lambda :open_url(input_text.get()))
     botton_hr.place(x=560,y=450)
+#

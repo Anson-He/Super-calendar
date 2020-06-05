@@ -83,3 +83,4 @@ def get_calculate():
 
     result = tk.Button(window,text='确定',width=5,height=1,command=calculate)
     result.place(x=430,y=15)
+#
