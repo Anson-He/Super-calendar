@@ -1,4 +1,5 @@
 def weather():
+    import tkinter.font as tf
     #----------主体框架-------------
     import tkinter as tk
     window = tk.Tk()
@@ -46,6 +47,9 @@ def weather():
     #------------------------------------
     #-------------白天----------------
     def morning():
+        ft = tf.Font(family='宋体',size = 18)
+        main.tag_add('tag_ym',0.0)
+        main.tag_config('tag_ym',font =ft )
         main.delete(0.0,tk.END)
         import re
         n = input_text.get()
@@ -72,18 +76,21 @@ def weather():
         sunset = re.findall('.{0,}日落：(.+)',a[18].text)[0]
         moonset = a[19].strong.text
         moonrise = re.findall('.{0,}月落：(.+)',a[19].text)[0]#网页中的月出月落反了
-        main.insert(tk.END,'================白天==============='+'\n')
-        main.insert(tk.END,'城市:'+n+'\n')
+        main.insert(tk.END,'================白天==============='+'\n','tag_ym')
+        main.insert(tk.END,'城市:'+n+'\n','tag_ym')
         dic = {'天气':wea,'温度':tem,'体感温度':b_tem,'云量':cloud,
                 '飞行延误预报':flight,'观星预报':star,'哮喘预报':asthma,'风向':wind_d,
                 '风速':wind_s,'阵风风向':gust_d,'阵风风速':gust_s,'下雨概率':rain_pre,
                 '下雪概率':snow_pre,'冻雪概率':w_snow_pre,'雷暴概率':thunderstorms_pre,
                 '日出时间':sunrise,'日落时间':sunset,'月出时间':moonrise,'月落时间':moonset}
         for i in dic:
-            main.insert(tk.END,i+':'+dic[i]+'\n')
+            main.insert(tk.END,i+':'+dic[i]+'\n','tag_ym')
     #--------------------------------
     #--------------夜晚-----------------
     def night():
+        ft = tf.Font(family='宋体',size = 18)
+        main.tag_add('tag_ym',0.0)
+        main.tag_config('tag_ym',font =ft )
         main.delete(0.0,tk.END)
         n = input_text.get()
         a = open_url(n)
@@ -111,15 +118,15 @@ def weather():
         sunset = re.findall('.{0,}日落：(.+)',a[35].text)[0]
         moonset = a[36].strong.text
         moonrise = re.findall('.{0,}月落：(.+)',a[36].text)[0]#网页中的月出月落反了
-        main.insert(tk.END,'================夜晚==============='+'\n')
-        main.insert(tk.END,'城市:'+n+'\n')
+        main.insert(tk.END,'================夜晚==============='+'\n','tag_ym')
+        main.insert(tk.END,'城市:'+n+'\n','tag_ym')
         dic = {'天气':wea,'温度':tem,'体感温度':b_tem,'云量':cloud,
                 '飞行延误预报':flight,'观星预报':star,'哮喘预报':asthma,'风向':wind_d,
                 '风速':wind_s,'阵风风向':gust_d,'阵风风速':gust_s,'下雨概率':rain_pre,
                 '下雪概率':snow_pre,'冻雪概率':w_snow_pre,'雷暴概率':thunderstorms_pre,
                 '日出时间':sunrise,'日落时间':sunset,'月出时间':moonrise,'月落时间':moonset}
         for i in dic:
-            main.insert(tk.END,i+':'+dic[i]+'\n')
+            main.insert(tk.END,i+':'+dic[i]+'\n','tag_ym')
     #--------------------------------------------
     #--------------逐小时汇报-----------------
     def hour_report():
@@ -138,11 +145,14 @@ def weather():
         main = tk.Text(window,width=60,height=40)
         main.place(x=130,y=100)
         def hr():
+            ft = tf.Font(family='宋体',size = 18)
+            main.tag_add('tag_ym',0.0)
+            main.tag_config('tag_ym',font =ft )
             p = int(input_text2.get())
             p = p-1
             n = input_text.get()
             main.delete(0.0,tk.END)
-            main.insert(tk.END,'城市:'+n+'\n')
+            main.insert(tk.END,'城市:'+n+'\n','tag_ym')
             from selenium import webdriver
             from selenium.webdriver.support import expected_conditions as EC
             from selenium.webdriver.common.by import By
@@ -185,7 +195,7 @@ def weather():
             x = a[l1[p]].find_all('p')
             time = x[0].text
             date = a[l1[p]].span.text
-            main.insert(tk.END,date+time+'\n')
+            main.insert(tk.END,date+time+'\n','tag_ym')
             tem = x[1].text
             y = a[l2[p]].find_all('span')
             z = a[l2[p]].find_all('p')
@@ -202,7 +212,7 @@ def weather():
                     '风向':wind_d,'风速':wind_s,y[4].text:gust_s,
                     '湿度':wet,'露点':dew_point,'能见度':can_see,'降雨概率':rain_pre}
             for i in dic:
-                main.insert(tk.END,i+':'+dic[i]+'\n')
+                main.insert(tk.END,i+':'+dic[i]+'\n','tag_ym')
         botton_sure = tk.Button(window,text='确定',width=6,height=2,command = hr)#,command=lambda :open_url(input_text.get()))
         botton_sure.place(x=500,y=13)
         window.mainloop()
