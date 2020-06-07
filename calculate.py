@@ -44,7 +44,7 @@ def get_calculate():
             x = re.findall('cos([0-9]{1,})',n)
             import math
             for i in x:
-                r.append(math.sin(int(i)))
+                r.append(math.cos(int(i)))
             for i in range(0,len(r)):
                 n = n.replace(str(x[i]),str(r[i]))
             n = n.replace('cos','')

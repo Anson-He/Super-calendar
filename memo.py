@@ -130,8 +130,8 @@ def memo():
         data = pd.read_csv(file,encoding='gbk',header = None)
         import re
         for i in range(0,len(data)):
-            total = re.findall("(标题)\'(:) \'(.{1,})\\\\n\'\\n1 {1,}\'(事件)\'(:) \'(.{1,})\\\\n\'\\n2 {1,}\'(提醒时间)\'(:) \'(.{1,})\\\\n",str(data.iloc[i,]))
-            label1.insert(tk.END,total[0][0]+total[0][1]+total[0][2]+'\n'+total[0][3]+total[0][4]+total[0][5]+'\n'+total[0][6]+total[0][7]+total[0][8]+'\n'+'\n'+'\n')
+            total = re.findall("(标题)\'(:) \'(.{1,})\\\\n\'\\n1 {1,}\'(事件)\'(:) \'(.{1,})\\\\n\'\\n2 {1,}\'(提醒时间)\'(:) \'(.{1,})\\\\n\'\\n3 {1,}\'(创建时间)\'(:) \'(.{1,})\'",str(data.iloc[i,]))
+            label1.insert(tk.END,total[0][0]+total[0][1]+total[0][2]+'\n'+total[0][3]+total[0][4]+total[0][5]+'\n'+total[0][6]+total[0][7]+total[0][8]+'\n'+total[0][9]+total[0][10]+total[0][11]+'\n'+'\n'+'\n')
 
 
 
