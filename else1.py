@@ -114,6 +114,7 @@ def else1():
 
 
 
+
     button_horoscope = tk.Button(window, text='星座运势', font=('Arial', 12), width=15, height=3,command=horoscope_tk)
     button_horoscope.place(x=70,y=30)
     from zodiac import get_zodiac
@@ -122,5 +123,8 @@ def else1():
     from calculate import get_calculate
     button_calculate = tk.Button(window, text='计算器', font=('Arial', 12), width=15, height=3,command=get_calculate)
     button_calculate.place(x=70,y=130)
+    from holiday import get_holiday
+    button_holiday = tk.Button(window, text='节假日', font=('Arial', 12), width=15, height=3,command=get_holiday)
+    button_holiday.place(x=300,y=130)
 
 #

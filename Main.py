@@ -1,4 +1,3 @@
-#
 import tkinter as tk
 import tkinter.font as tf
 
@@ -18,14 +17,6 @@ from weather_quiet import weather_quiet
 from else1 import  else1
 
 window = tk.Tk()
-'''#------------设置背景图片--------------
-im = Image.open('背景.jpg').resize((1000,500))
-b_im = ImageTk.PhotoImage(im)
-cv = tk.Canvas(window,width=1000,height=500)
-cv.create_image(500,250,image=b_im)
-cv.pack()
-#-------------------------------------'''
-
 window.title('超级万年历')
 window.geometry('1000x500')# 设定窗口的大小(长 * 宽)
 
@@ -104,4 +95,18 @@ button_else = tk.Button(window, text='其他', font=('Arial', 12), width=15, hei
 button_else.place(x=800,y=200)
 button_music = tk.Button(window, text='▶', font=('Arial', 25), width=5, height=1,command = music)
 button_music.place(x=700,y=300)
+
 window.mainloop()
+#------------定时提醒查看备忘录--------------
+import schedule
+import time
+import tkinter.messagebox
+def job():
+    m = tk.Tk()
+    tkinter.messagebox.showinfo('提示','请定时查看备忘录')
+    m.mainloop()
+schedule.every().day.at('08:30').do(job)
+schedule.every().day.at('14:00').do(job)
+#schedule.every().day.at('16:51').do(job)
+while True:
+    schedule.run_pending()#运行定时器

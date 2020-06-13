@@ -1,7 +1,7 @@
 def get_calculate():
     import tkinter as tk
     window = tk.Tk()
-    window.geometry('500x200')
+    window.geometry('500x300')
     window.title('计算器')
     input1 = tk.Text(window,width = 50,height = 3)
     input1.place(x=70,y=10)
@@ -77,8 +77,9 @@ def get_calculate():
         result1.delete(0.0,tk.END)
         result1.insert(tk.END,a)
     #--------------------------------
-
-
+    instructions = '说明:\n+ - * / 对应 加 减 乘 除法\na%b 对应取余 a除以b的余数\na//b 对应求模 a除以b后的整数部分\nsina cosa tana 对应 a的正弦 余弦 正切值\nlog(a)b 对应 以a为底b的对数\na! 对应 a的阶乘'
+    instructions_label = tk.Label(window,text = instructions)
+    instructions_label.place(x=120,y=170)
 
 
     result = tk.Button(window,text='确定',width=5,height=1,command=calculate)
